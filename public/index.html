@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f4e8">
+    <meta name="description" content="Find a simple outdoor game and get back to playing.">
+    <title>GullyGames AI — Less scrolling. More playing.</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="GullyGames AI home">
+        <span class="brand-mark" aria-hidden="true">GG</span>
+        <span>GullyGames <span class="brand-ai">AI</span></span>
+      </a>
+      <span class="header-note">A little fresh air, a lot more play</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow"><span aria-hidden="true">✳</span> Your next great game is outside</p>
+        <h1 id="hero-title">Less scrolling.<br><span>More playing.</span></h1>
+        <p class="hero-copy">Tell us about your crew. We’ll find a simple game that fits your day.</p>
+        <div class="hero-stamp" aria-hidden="true"><span>GO</span><span>OUTSIDE</span></div>
+      </section>
+
+      <section class="content-grid" aria-label="Find an outdoor game">
+        <form id="recommend-form" class="panel preference-panel">
+          <div class="section-heading">
+            <span class="step-number">01</span>
+            <div><h2>Who's playing?</h2><p>Choose what works for your group.</p></div>
+          </div>
+          <label for="request">Describe your plan <span class="optional">(optional)</span></label>
+          <textarea id="request" name="request" rows="2" maxlength="500" placeholder="e.g. A relaxed game for cousins at the park"></textarea>
+          <div class="form-grid">
+            <label for="players">Players
+              <select id="players" name="players">
+                <option value="2">2 players</option><option value="3">3 players</option><option value="4">4 players</option>
+                <option value="5">5 players</option><option value="6" selected>6 players</option><option value="8">8 players</option>
+                <option value="10">10 players</option><option value="12">12 players</option><option value="15">15 players</option>
+                <option value="20">20 players</option>
+              </select>
+            </label>
+            <label for="ageGroup">Age group
+              <select id="ageGroup" name="ageGroup">
+                <option value="under-6">Ages 4–5</option><option value="6-8">6–8</option>
+                <option value="9-12">9–12</option><option value="13-plus">13+</option>
+                <option value="mixed" selected>Mixed ages (6+)</option>
+              </select>
+            </label>
+            <label for="minutes">Available time
+              <select id="minutes" name="minutes">
+                <option value="10">10 minutes</option><option value="15">15 minutes</option>
+                <option value="20">20 minutes</option><option value="30" selected>30 minutes</option>
+                <option value="45">45 minutes</option><option value="60">1 hour</option>
+              </select>
+            </label>
+            <label for="space">Space available
+              <select id="space" name="space">
+                <option value="small">Small — room to stand</option>
+                <option value="medium" selected>Medium — a clear patch</option>
+                <option value="large">Large — open field</option>
+              </select>
+            </label>
+            <label for="category">Game mood
+              <select id="category" name="category">
+                <option value="any" selected>Surprise me</option><option value="traditional">Traditional</option>
+                <option value="tag">Tag</option><option value="team">Teamwork</option>
+                <option value="nature">Nature</option><option value="movement">Movement</option>
+                <option value="creative">Creative</option>
+              </select>
+            </label>
+          </div>
+          <label class="equipment-control" for="equipmentAvailable">
+            <input id="equipmentAvailable" name="equipmentAvailable" type="checkbox">
+            <span class="toggle" aria-hidden="true"></span>
+            <span><strong>We have a few things to play with</strong><small>Turn on if you can gather simple equipment</small></span>
+          </label>
+          <button id="find-button" class="button button-primary" type="submit">
+            <span>Find My Game</span><span aria-hidden="true">↗</span>
+          </button>
+          <p class="privacy-note"><span aria-hidden="true">●</span> Your preferences stay in this app. No account needed.</p>
+        </form>
+
+        <section id="results-section" class="results-column" aria-live="polite" aria-busy="false">
+          <div class="empty-state panel" id="empty-state">
+            <span class="sun-icon" aria-hidden="true">☀</span>
+            <p class="eyebrow">The grass is calling</p>
+            <h2>Your next game<br>starts here.</h2>
+            <p>Pick your group’s details and we’ll find a good fit from the game library.</p>
+            <span class="doodle" aria-hidden="true">✳ &nbsp; ◌ &nbsp; ✳</span>
+          </div>
+          <div id="loading-state" class="loading-state panel" hidden>
+            <span class="loader" aria-hidden="true"></span>
+            <h2>Finding your game…</h2>
+            <p>Good things are growing.</p>
+          </div>
+          <div id="results" hidden></div>
+        </section>
+      </section>
+
+      <section class="revive-section panel" aria-labelledby="revive-title">
+        <div class="revive-copy">
+          <span class="step-number">02</span>
+          <p class="eyebrow">Pass it on</p>
+          <h2 id="revive-title">Revive a<br>Forgotten Game</h2>
+          <p>Remember a game from childhood or your family? Save the memory and turn it into a play card—without making up its history.</p>
+          <span class="revive-doodle" aria-hidden="true">✳</span>
+        </div>
+        <form id="revive-form" class="revive-form">
+          <label for="memory-name">Game name <span class="optional">(if you know it)</span>
+            <input id="memory-name" name="name" maxlength="100" placeholder="What did you call it?">
+          </label>
+          <label for="memory-details">What do you remember?
+            <textarea id="memory-details" name="details" rows="4" maxlength="1500" placeholder="What did players do? How many people or what equipment do you remember?"></textarea>
+          </label>
+          <button id="revive-button" class="button button-secondary" type="submit">Make a play card <span aria-hidden="true">↗</span></button>
+          <div id="revive-result" class="revive-result" aria-live="polite"></div>
+        </form>
+      </section>
+
+      <aside class="phone-down" aria-label="A reminder to put your phone away">
+        <span aria-hidden="true">✳</span>
+        <p>PHONE DOWN.<br><strong>GO PLAY!</strong></p>
+        <span aria-hidden="true">✳</span>
+      </aside>
+      <p class="safety-footer">Choose a safe, permitted space. Adapt every game to local conditions, and supervise younger children.</p>
+    </main>
+    <footer class="site-footer"><span>Made for real-world play.</span><span>GullyGames AI · Open source</span></footer>
+  </body>
+</html>

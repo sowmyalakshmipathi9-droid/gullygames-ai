@@ -1,0 +1,15 @@
+{
+  "name": "gullygames-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A local-AI-powered outdoor game discovery app",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "ollama": "^0.6.4"
+  }
+}
